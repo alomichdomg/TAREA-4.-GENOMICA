@@ -64,23 +64,58 @@ RED6: 13
 
 Se tendria el doble de conexiones para que el nodo A conecte al nodo B para ser igual a la no dirigida.
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 20.55.41_9d8e03f2.jpg){width="428"} **4. Considera tu red de amigos reales.¿ Cuál es tu coeficiente de clusterización?**
-De 1 para una parte de la red y de 0 para las otras partes.
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2020.55.41_9d8e03f2.jpg){width="428"} **4. Considera tu red de amigos reales.¿ Cuál es tu coeficiente de clusterización?** De 1 para una parte de la red y de 0 para las otras partes.
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 19.49.26_fc69303e.jpg){width="382"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2019.49.26_fc69303e.jpg){width="382"}
 
-**CALCULO A MANO DE LAS REDES:**
+### **CALCULO A MANO DE LAS REDES:**
 
 en esta el diametro igual a 5
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 22.08.04_6477d46d-01.jpg){width="358"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2022.08.04_6477d46d-01.jpg){width="358"}
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 22.06.21_e4872f84.jpg){width="351"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2022.06.21_e4872f84.jpg){width="351"}
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 22.11.35_32d1392c.jpg){width="359"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2022.11.35_32d1392c.jpg){width="359"}
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 22.36.29_76614884.jpg){width="369"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2022.36.29_76614884.jpg){width="369"}
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 22.51.52_bfc688d2.jpg){width="361"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2022.51.52_bfc688d2.jpg){width="361"}
 
-![](images/Imagen de WhatsApp 2025-04-09 a las 23.01.22_f4bdbc19.jpg){width="420"}
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2023.01.22_f4bdbc19.jpg){width="420"}
+
+### **ZACHARY**
+
+```{r message=FALSE, warning=FALSE}
+library(igraph)
+karate<-make_graph("Zachary")
+
+```
+
+-   **¿Cuántos nodos y conexiones tiene?**
+
+    34
+
+-   **¿Quiénes son los nodos y cuál es la regla de conexión?**
+
+-   **¿Qué tan densa es la red?**
+    Tiene una densidad de     
+-   **¿Cómo obtienes la matriz de adyacencia?**
+
+-   **¿Es una red dirigida, pesada?**
+
+-   **Calcula y gráfica la distribución de conectividades**
+
+-   **Calcula el diámetro, la matriz de distancias y la distancia promedio**
+
+    diametro = 5
+
+    distancias promedio: 2.4082
+
+-   **Encuentra la trayectoria de los nodos más alejados.**
+
+-   **Existen nodos con coefeiciente de clusterización 1. ¿Qué significa?**
+
+    Si, que todos los nodos vecinos de este nodo estan conectados entre si.
+
+-   **Mide , con al menos tres medidas de centralidad, los nodos más importantes.**

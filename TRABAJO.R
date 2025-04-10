@@ -74,3 +74,7 @@ red6 <- make_graph(edges = c(4,9,4,8,2,4,2,5,5,10,1,2,1,3,3,7,3,6),
                    directed = TRUE)
 plot(red6)
 calculo_total(red6)
+#################################################################################
+karate<-make_graph("Zachary")
+calculo_total(karate)
+mean_distance(karate)
