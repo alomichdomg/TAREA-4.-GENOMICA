@@ -104,13 +104,20 @@ karate<-make_graph("Zachary")
 
     Tiene una densidad de 0.06951872. Esto indica que hay menos conexiones entre los miembros, lo que indica que la red tiene partes fragmentadas, considerando que la red se separo por motivos sociales tiene relacion la baja densidad.
 
--   **¿Cómo obtienes la matriz de adyacencia?**
+-   **¿Cómo obtienes la matriz de adyacencia?.**
+
+    Se obtiene al marcar con 1 o 0 si el nodo esta conectado o no, si la red es dirigida la matriz que se obtiene no es simetrica, en este caso se obtiene una matriz no simetrica que representa la interacccion de los nodos.
 
 -   **¿Es una red dirigida, pesada?**
 
     Es una red dirigida ya que al ser una red de interacciones entre personas, ciertos miembros no son reciprocos con la interaccion. Es no pesada ya que no hay valor o se cuantifica el nivel de la interaccion.
 
--   **Calcula y gráfica la distribución de conectividades**
+-   **Calcula y gráfica la distribución de conectividades.**
+
+    ```{r}
+    degree_distribution(karate)->degreed
+    hist(degreed, , col="purple", main="Histograma del grado")
+    ```
 
 -   **Calcula el diámetro, la matriz de distancias y la distancia promedio**
 
@@ -142,3 +149,35 @@ which(distancia_1 == distancia_maxima)#
     Si, que todos los nodos vecinos de este nodo estan conectados entre si.
 
 -   **Mide , con al menos tres medidas de centralidad, los nodos más importantes.**
+
+```{r message=FALSE, warning=FALSE}
+#1.-Centralidad de grados:
+degree(karate) 
+V(karate)$degree <- degree(karate) # assignment
+
+plot(karate, vertex.label.cex = .6, vertex.label.color = "black", vertex.size = V(karate)$degree, vertex.label.cex = .2) # sized by degree
+  #2.- Centralidad de intermediación
+betweenness(karate)#, directed = TRUE)
+V(karate)$betweenness <- betweenness(karate)#, directed = F) # assignment
+
+plot(karate, 
+     vertex.label.cex = .6, 
+     vertex.label.color = "black", 
+     vertex.size = V(karate)$betweenness) # sized by betweenness
+  #3.- Centralidad de cercania
+closeness(karate)
+V(karate)$closeness <- closeness(karate)
+plot(karate,
+     vertex.label.cex = .6, 
+     vertex.label.color = "black", 
+     vertex.size = V(karate)$closeness/max(V(karate)$closeness) * 20)
+  #4.- Centralidad del vector propio.
+eigen_centrality(karate)$vector
+V(karate)$eigenvector <- eigen_centrality(karate)$vector
+
+plot(karate,
+     vertex.label.cex = .6, 
+     vertex.label.color = "black", 
+     vertex.size = V(karate)$eigenvector/max(V(karate)$eigenvector) * 20)
+
+```
