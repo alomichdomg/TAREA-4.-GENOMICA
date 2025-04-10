@@ -181,3 +181,48 @@ plot(karate,
      vertex.size = V(karate)$eigenvector/max(V(karate)$eigenvector) * 20)
 
 ```
+
+### **AMIGUES**
+
+**A partir de la red de amigues que vimos en clase, en su versión no ponderada, contesta lo siguiente:**
+
+-   **Escribe una función que calcule el número de amigos que tiene cualquier persona arbitraria y lo compare con el número de los amigos de estos.**
+
+    ```{r}
+    amigos_comparacion <- function(grafo, nombre){
+    #Escribe una función que calcule el número de amigos que tiene cualquier persona 
+      amigos <- degree(grafo, v=nombre, mode = "out")#que considera amigos
+      cat("amigos que considera:", amigos, "\n")
+      amigos2 <- degree(grafo, v=nombre, mode = "in")
+      cat("lo consideran su amigos:", amigos2, "\n")
+       #compare con el número de los amigos de estos
+      amigos3 <- neighbors(grafo, v = nombre)
+      #cat("amigos de sus amigos:", amigos3, "\n")---NO SALE
+      print(amigos3)
+      grados_amigos <- degree(grafo, v = amigos3)
+      cat("compare con el número de los amigos de estos:", grados_amigos, "\n")
+      promedio_amigos<- mean(grados_amigos)
+      cat("EL PROMEDIO DE AMIGOS ES:", promedio_amigos, "\n")
+      
+    }
+    ```
+
+-   **Escribe una función que te de la trayectoria más larga entre dos nodos arbitrarios de la red.**
+
+    ```{r}
+    #comillas y mayuscula(from, to)
+    lejanos_amigos <- function(grafo, nombre1, nombre2){
+      trayectorias <- all_simple_paths(red, from = nombre1, to = nombre2)
+      #rayectoria más larga entre dos nodos
+      largos1 <- sapply(trayectorias, length)
+      lejano1 <- max(largos1) #para que saque cual es la mas larga
+      trayectoria_larga <- trayectorias[largos1 == lejano1]
+      print(trayectoria_larga)
+    }
+    ```
+
+-   **Encuentra las dos personas más populares.**
+
+    David y Abraham
+
+### 

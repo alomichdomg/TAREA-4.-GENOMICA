@@ -82,3 +82,58 @@ plot(karate,
      vertex.label.cex = .6, 
      vertex.label.color = "black", 
      vertex.size = V(karate)$eigenvector/max(V(karate)$eigenvector) * 20)
+################################################################################
+#AMIGOS/SALON
+g<-read.csv("adjacency_matrix - adjacency_matrix.csv")
+View(g)
+rownames(g)<-g[,1]
+View(g)
+g<-g[,-1]
+g<-as.matrix(g)
+diag(g)<-0
+red<-graph_from_adjacency_matrix(g)
+plot(red,vertex.size=15,vertex.size=5,
+     edge.arrow.size=0.25,layout=layout_nicely,vertex.size.label=0.25)
+
+degree(red, v="ALONDRA", mode = "in")
+amigos3 <- neighbors(red, v = "ALONDRA")
+degree(red, v = amigos3)
+
+#funcion
+#para esto poner nombre en mayusculas y comillas
+amigos_comparacion <- function(grafo, nombre){
+#Escribe una función que calcule el número de amigos que tiene cualquier persona 
+  amigos <- degree(grafo, v=nombre, mode = "out")#que el considera amigos
+  cat("amigos que considera:", amigos, "\n")
+  amigos2 <- degree(grafo, v=nombre, mode = "in")
+  cat("lo consideran su amigos:", amigos2, "\n")
+   #compare con el número de los amigos de estos.
+  amigos3 <- neighbors(grafo, v = nombre)
+  #cat("amigos de sus amigos:", amigos3, "\n")
+  print(amigos3)
+  grados_amigos <- degree(grafo, v = amigos3)
+  cat("compare con el número de los amigos de estos:", grados_amigos, "\n")
+  promedio_amigos<- mean(grados_amigos)
+  cat("EL PROMEDIO DE AMIGOS ES:", promedio_amigos, "\n")
+  
+  
+}
+amigos_comparacion(red, "ZAID")
+degree_distribution(red)->d1
+hist(d1)
+#Escribe una función que te de la trayectoria más larga entre dos nodos
+#arbitrarios de la red.
+
+all_simple_paths(red, from = "ALONDRA", to = "ABRAHAM")
+
+#comillas y mayuscula(from, to)
+lejanos_amigos <- function(grafo, nombre1, nombre2){
+  trayectorias <- all_simple_paths(red, from = nombre1, to = nombre2)
+  #rayectoria más larga entre dos nodos
+  largos1 <- sapply(trayectorias, length)
+  lejano1 <- max(largos1) #para que saque cual es la mas larga
+  trayectoria_larga <- trayectorias[largos1 == lejano1] #cual tiene la mas lejana
+  print(trayectoria_larga)
+}
+lejanos_amigos(red, "ALONDRA", "ABRAHAM") #te da todas las combinaciones :)
+
