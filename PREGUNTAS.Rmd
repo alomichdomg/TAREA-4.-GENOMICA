@@ -98,21 +98,44 @@ karate<-make_graph("Zachary")
 
 -   **¿Quiénes son los nodos y cuál es la regla de conexión?**
 
+    El nodo 1 representa al entrenador y el nodo 34 al administrador y presidente del club. Cada nodo indica a un miembro del club de karate y las interacciones que tuvieron fuera del club. Ademas representa el momento donde se separo el club y como se acomodaron los miembros.
+
 -   **¿Qué tan densa es la red?**
-    Tiene una densidad de     
+
+    Tiene una densidad de 0.06951872. Esto indica que hay menos conexiones entre los miembros, lo que indica que la red tiene partes fragmentadas, considerando que la red se separo por motivos sociales tiene relacion la baja densidad.
+
 -   **¿Cómo obtienes la matriz de adyacencia?**
 
 -   **¿Es una red dirigida, pesada?**
+
+    Es una red dirigida ya que al ser una red de interacciones entre personas, ciertos miembros no son reciprocos con la interaccion. Es no pesada ya que no hay valor o se cuantifica el nivel de la interaccion.
 
 -   **Calcula y gráfica la distribución de conectividades**
 
 -   **Calcula el diámetro, la matriz de distancias y la distancia promedio**
 
-    diametro = 5
+    ```{r}
+    source("FUNCION.R")
+    karate<-make_graph("Zachary")
+    calculo_total(karate)
+    #diametro = 5
 
-    distancias promedio: 2.4082
+    #distancias promedio: 2.4082
+    ```
 
 -   **Encuentra la trayectoria de los nodos más alejados.**
+
+```{r}
+distancia_1 <- distances(karate)
+print(distancia_1)
+
+max(distancia_1)->distancia_maxima
+which(distancia_1 == distancia_maxima)#
+
+#la trayectoria mas lejana es de 5 y son estos los nodos
+
+
+```
 
 -   **Existen nodos con coefeiciente de clusterización 1. ¿Qué significa?**
 
