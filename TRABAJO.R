@@ -82,6 +82,8 @@ plot(karate,
      vertex.label.cex = .6, 
      vertex.label.color = "black", 
      vertex.size = V(karate)$eigenvector/max(V(karate)$eigenvector) * 20)
+
+#REFERENCIA:https://bookdown.org/markhoff/social_network_analysis/centrality.html
 ################################################################################
 #AMIGOS/SALON
 g<-read.csv("adjacency_matrix - adjacency_matrix.csv")
