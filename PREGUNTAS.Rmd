@@ -64,7 +64,11 @@ RED6: 13
 
 Se tendria el doble de conexiones para que el nodo A conecte al nodo B para ser igual a la no dirigida.
 
-![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2020.55.41_9d8e03f2.jpg){width="428"} **4. Considera tu red de amigos reales.¿ Cuál es tu coeficiente de clusterización?** De 1 para una parte de la red y de 0 para las otras partes.
+![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2020.55.41_9d8e03f2.jpg){width="428"}
+
+**4. Considera tu red de amigos reales.¿ Cuál es tu coeficiente de clusterización?**
+
+De 1 para una parte de la red y de 0 para las otras partes.
 
 ![](images/Imagen%20de%20WhatsApp%202025-04-09%20a%20las%2019.49.26_fc69303e.jpg){width="382"}
 
@@ -224,5 +228,3 @@ plot(karate,
 -   **Encuentra las dos personas más populares.**
 
     David y Abraham
-
-### 
