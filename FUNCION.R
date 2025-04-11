@@ -20,6 +20,10 @@ calculo_total <- function(grafo){
   print(ava_degree)
   cat("degree avarage:", ava_degree, "\n")
   
+  degre1<- degree(grafo, mode = "total")
+  mean(degre1)->promedio1
+  
+  cat("degree avarage FUNCION:", promedio1, "\n")
   
   #Degree distribution
   hist(total, col="purple", main="Histograma del grado")
