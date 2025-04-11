@@ -106,7 +106,7 @@ karate<-make_graph("Zachary")
 
 -   **¿Qué tan densa es la red?**
 
-    Tiene una densidad de 0.06951872. Esto indica que hay menos conexiones entre los miembros, lo que indica que la red tiene partes fragmentadas, considerando que la red se separo por motivos sociales tiene relacion la baja densidad.
+    Tiene una densidad de 0.1390374. Esto indica que hay menos conexiones entre los miembros, lo que indica que la red tiene partes fragmentadas, considerando que la red se separo por motivos sociales tiene relacion la baja densidad.
 
 -   **¿Cómo obtienes la matriz de adyacencia?.**
 
