@@ -40,6 +40,37 @@ mean_distance(levadura)
 
 #Crea una función que, a partir de eliminar al azar un noodo de la red genere el 
   #promedio d elas distancias después de eliminar $n=1,2,3,\ldots, 100$ nodos al azar
+levadura_mod <- levadura
+
+levadura_funcion<- function(grafo){
+levadura_mod1 <- grafo
+promedio_distancias <- c()
+
+#antes era un ciclo while que no sirvio :/
+for (contador in 1:100) {
+  
+  if (vcount(levadura_mod1) == 0) { #tiene que ser mayor que 100 siempre.
+    print("NO")
+  }
+  # TOMAR DE UNO EN UNO
+  nodo_eliminado <- sample(1:vcount(levadura_mod1), 1)
+  
+  #QUE ELIMINE DE UNO-UNO
+  levadura_nueva <- delete_vertices(levadura_mod1, nodo_eliminado)
+  
+  print(vcount(levadura_nueva)) #cuantos nodos va teniendo la levadura nueva
+  
+  promedio_distancias_unica<- mean_distance(levadura_nueva) #cuenta solo la primera eliminada :/
+  #promedio_distancias <- promedio_distancias_unica#---NOOO
+    #se le agrega a la nueva distancia, para que aparezcan 
+  promedio_distancias <- c(promedio_distancias, promedio_distancias_unica)
+  levadura_mod1 <- levadura_nueva
+  }
+return(promedio_distancias)
+}
+
+levadura_funcion(levadura_mod) #
+levadura_funcion(red) #-- sale el NO 
 
 
 #Crea una función que elimine las proteínas más conectadas y calcule el promedio de 
