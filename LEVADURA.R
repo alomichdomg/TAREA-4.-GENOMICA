@@ -76,7 +76,39 @@ levadura_funcion(red) #-- sale el NO
 #Crea una función que elimine las proteínas más conectadas y calcule el promedio de 
   #las distancias cad vez que se remueve un nodo.
 
+levadura_conectadas <- function(grafo){
+  sort(degree(levadura, mode = "total"), decreasing = TRUE)->proteinas_conectadas
+  proteinas_conectadas[1]
 
+}
+
+levadura_conectadas <- function(grafo) {
+  levadura_mod <- grafo
+    proteinas_conectadas <- sort(degree(levadura_mod, mode = "total"), decreasing = TRUE)
+  
+  promedio_distancias <- c()
+  for (i in 1:10) {
+    # Nodo a eliminar
+    nodo_distancias <- proteinas_conectadas[i]
+  
+    eliminados_nodos <- delete_vertices(levadura_mod, nodo_distancias)
+    
+        promedio_distancias_unica<- mean_distance(eliminados_nodos) #cuenta solo la primera eliminada :/
+      promedio_distancias <- c(promedio_distancias, promedio_distancias_unica)
+    levadura_mod <- eliminados_nodos
+    
+
+  } #del ciclo for
+  
+  # Devolver los promedios de la mean_distances()
+  return(promedio_distancias)
+}
+
+levadura_conectadas(levadura)
+
+#si se quitan las proteinas con mas conexiones se altera la estructura de la red
+#esto puede ocasionar perdida de conexiones importantes y el funcionamiento de la
+#levadura.
 
 #Calcula el proemdio del coeficiente de clusterización.
 transitivity(levadura, type = "local")->levaduracluster
