@@ -18,7 +18,9 @@ calculo_total <- function(grafo){
   #Average degree
   ava_degree <- total/nodos
   print(ava_degree)
-  cat("degreeavarage:", ava_degree, "\n")
+  cat("degree avarage:", ava_degree, "\n")
+  
+  
   #Degree distribution
   hist(total, col="purple", main="Histograma del grado")
   #Density
