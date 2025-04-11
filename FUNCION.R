@@ -24,7 +24,9 @@ calculo_total <- function(grafo){
   #Density
   densi <- conexiones/(nodos * (nodos-1))
   print(densi)
-  cat("densidad:", densi, "\n")
+  cat("densidad manual :", densi, "\n")
+  edge_density(grafo)->denis1
+  cat("densidad:", denis1, "\n")
   #Adjacency matrix
   adj_mat <- as.matrix(as_adjacency_matrix(grafo))
   View(adj_mat)
